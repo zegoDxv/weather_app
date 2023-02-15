@@ -1,0 +1,16 @@
+.header {
+    padding-top: 87px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 65px;
+}
+.header__tittle {
+}
+.header__tittle_gradient {
+    background: linear-gradient(90.85deg, #CAECFF 39.76%, #78CFFF 86.12%),
+    linear-gradient(0deg, #FFFFFF, #FFFFFF);
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+
+}
