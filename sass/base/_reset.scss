@@ -33,8 +33,6 @@ nav,footer,header,aside{display: block;}
 
 html,body{
 	scroll-behavior: smooth;
-	height: 100%;
-	width: 100%;
 	font-size: 100%;
 	line-height: 1;
 	font-size: 14px;
@@ -55,7 +53,6 @@ input,button,textarea{font-family:inherit;}
 
 button, input[type="submit"] {
 	cursor: pointer;
-	background: none;
 }
 
 input::-ms-clear{display: none;}
