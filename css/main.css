@@ -2,10 +2,6 @@
 body {
   font-family: "Poppins", sans-serif;
   color: #fff;
-  background-image: url("/img/bgc/bgcbody.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100%;
 }
 
 .container {
@@ -70,8 +66,6 @@ nav, footer, header, aside {
 
 html, body {
   scroll-behavior: smooth;
-  height: 100%;
-  width: 100%;
   font-size: 100%;
   line-height: 1;
   font-size: 14px;
@@ -89,7 +83,6 @@ input, button, textarea {
 
 button, input[type=submit] {
   cursor: pointer;
-  background: none;
 }
 
 input::-ms-clear {
@@ -145,7 +138,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 65px;
 }
 
-.header__tittle_gradient {
+.header__title_gradient {
   background: linear-gradient(90.85deg, #CAECFF 39.76%, #78CFFF 86.12%), linear-gradient(0deg, #FFFFFF, #FFFFFF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -161,13 +154,27 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+  min-height: 520px;
 }
 
 .weather__card {
+  position: relative;
   width: 716px;
   padding: 200px 52px 20px 52px;
   background-color: #24353E;
   border-radius: 20px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.weather__image {
+  width: 50px;
+  height: 50px;
 }
 
 .card__title {
@@ -188,9 +195,37 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
 
-body {
+.weather__select {
+  background-color: #24353E;
+  border-radius: 20px;
+  padding: 50px 60px 0 60px;
+}
+
+.select__title {
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.select__field {
+  margin-top: 20px;
+  background-color: #fff;
   display: flex;
-  flex-direction: column;
+  border-radius: 6px;
+  padding: 6px;
+}
+
+.select__input {
+  flex-grow: 1;
+  height: 30px;
+  padding: 2px;
+}
+
+.select__btn {
+  background: 100px;
+  color: #fff;
+  background-color: #517588;
+  border-radius: 5px;
+  padding: 2px 5px;
 }
 
 .content {
@@ -204,8 +239,36 @@ body {
   background-color: #27343b;
 }
 
-.footer__tittle {
+.footer__title {
   color: #fff;
   opacity: 0.7;
   padding: 20px 0 20px 0;
+}
+
+.content {
+  background-image: url("/img/bgc/bgcbody.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 1263px) {
+  .weather__select {
+    border-radius: 20px 20px 0px 0px;
+    padding: 50px 35px 0 35px;
+    width: 716px;
+  }
+  .weather__card {
+    border-radius: 0px 0px 20px 20px;
+  }
+  .weather__image {
+    display: none;
+  }
+  .select__title {
+    text-align: center;
+  }
+}
+@media (max-width: 320px) {
+  .weather__select {
+    padding: 50px 0px 0 0px;
+  }
 }

@@ -1,0 +1,22 @@
+@media (max-width: 1263px){
+    .weather__select {
+        border-radius: 20px 20px 0px 0px;
+        padding: 50px 35px 0 35px;
+        width: 716px;
+    }
+    .weather__card {
+        border-radius: 0px 0px 20px 20px;
+    }
+    .weather__image {
+        display: none;
+    }
+    .select__title{
+        text-align: center;
+    }
+}
+
+@media (max-width: 320px) {
+    .weather__select {
+        padding: 50px 0px 0 0px;
+    }
+}

@@ -10,4 +10,14 @@
 @import "./blocks/nav";
 @import "./blocks/header";
 @import "./blocks/weather";
-@import './blocks/footer'
+@import './blocks/footer';
+
+.content {
+    background-image: url('/img/bgc/bgcbody.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+// Media
+
+@import "./media/mediarequests";
