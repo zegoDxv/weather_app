@@ -39,23 +39,82 @@
                     <div class="weather__row">
                         <div class="weather__select">
                             <h2 class="select__title">Select city or country</h2>
-                            <form class="select__field">
-                                <input type="text" class="select__input" placeholder="write city or country" required />
-                                <input type="submit" value="OK" class="select__btn" />
+                            <form id="form" class="select__field">
+                                <input
+                                    id="textInput"
+                                    value=""
+                                    name="city"
+                                    type="text"
+                                    class="select__input"
+                                    placeholder="write city or country"
+                                    required />
+                                <input id="btn" type="submit" value="OK" class="select__btn" />
                             </form>
                             <!-- <div class="weather__image">
                                 <img src="/img/weather/city.png" alt="">
                             </div> -->
                         </div>
                         <div class="weather__card">
+                            <div class="card__header">
+                                <div id="isDay" class="card__day"></div>
+                                <div class="weather__description">
+                                    <img id="img" class="weather__image" src="/img/wDescription" alt="" />
+                                    <div id="description" class="card__info"></div>
+                                </div>
+                            </div>
                             <div id="city" class="card__title">
                                 <span class="card__title_light" id="temperature">1</span>&deg;C
                             </div>
-                            <p id="windspeed" class="card__info"></p>
-                            <p id="observation" class="card__info"></p>
-                            <div class="weather__description row">
-                                <p id="description" class="card__info"></p>
-                                <img id="img" class="weather__image" src="/img/wDescription" alt="" />
+                            <div class="card__observation">
+                                <p id="observation" class="card__info"></p>
+                            </div>
+                            <div class="card__properties">
+                                <div class="card__properties-left">
+                                    <div class="row">
+                                        <img
+                                            class="propertie__image"
+                                            src="/img/weatherProperties/wind_color.png"
+                                            alt="" />
+                                        <div id="windspeed" class="card__info"></div>
+                                    </div>
+                                    <div class="row">
+                                        <img
+                                            src="/img/weatherProperties/cloud_color.png"
+                                            alt=""
+                                            class="propertie__image" />
+                                        <div class="card__info" id="cloudcover">75%</div>
+                                    </div>
+                                    <div class="row">
+                                        <img
+                                            src="/img/weatherProperties/uv-index_color.png"
+                                            alt=""
+                                            class="propertie__image" />
+                                        <div id="uvIndex" class="card__info">1 / 100</div>
+                                    </div>
+                                </div>
+                                <div class="card__properties__right">
+                                    <div class="row">
+                                        <img
+                                            src="/img/weatherProperties/humidity_color.png"
+                                            alt=""
+                                            class="propertie__image" />
+                                        <div id="humidity" class="card__info">93%</div>
+                                    </div>
+                                    <div class="row">
+                                        <img
+                                            src="/img/weatherProperties/gauge_color.png"
+                                            alt=""
+                                            class="propertie__image" />
+                                        <div id="pressure" class="card__info">1036 %</div>
+                                    </div>
+                                    <div class="row">
+                                        <img
+                                            src="/img/weatherProperties/visibility_color.png"
+                                            alt=""
+                                            class="propertie__image" />
+                                        <div id="visibility" class="card__info">10%</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

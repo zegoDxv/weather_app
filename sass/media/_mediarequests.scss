@@ -7,11 +7,22 @@
     .weather__card {
         border-radius: 0px 0px 20px 20px;
     }
-    .weather__image {
-        display: none;
-    }
     .select__title{
         text-align: center;
+    }
+}
+
+@media (max-width: 465px) {
+    .card__day {
+        margin: 0 auto;
+    }
+    .weather__description {
+        padding-top: 20px;
+        margin: 0 auto;
+    }
+    .card__observation{
+        justify-content:center;
+        margin-bottom: 10px;
     }
 }
 
