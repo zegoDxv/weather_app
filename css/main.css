@@ -121,13 +121,42 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav {
   text-align: center;
-  background: linear-gradient(90.85deg, #1a8bc4 39.76%, #25a9c0 86.12%), linear-gradient(0deg, #FFFFFF, #FFFFFF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   padding-top: 51px;
   font-weight: 600;
   font-size: 40px;
   line-height: 60px;
+}
+
+.gradient {
+  background: linear-gradient(90.85deg, #CAECFF 39.76%, #78CFFF 86.12%), linear-gradient(0deg, #FFFFFF, #FFFFFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav__menu {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav__lang {
+  display: flex;
+  justify-content: center;
+  height: 30px;
+}
+
+.nav__select {
+  color: #FFFFFF;
+  border-radius: 10px;
+  background-color: #415f70;
+  height: 33px;
+  width: 60px;
+  padding: 5px;
+}
+
+.nav__option {
+  font-size: 15px;
+  color: #FFFFFF;
 }
 
 .header {
@@ -152,7 +181,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .weather__row {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   -moz-column-gap: 50px;
        column-gap: 50px;
@@ -314,6 +342,9 @@ h1, h2, h3, h4, h5, h6 {
     padding: 50px 35px 0 35px;
     width: 716px;
   }
+  .weather__row {
+    flex-wrap: wrap;
+  }
   .weather__card {
     border-radius: 0px 0px 20px 20px;
   }
@@ -322,6 +353,12 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 @media (max-width: 465px) {
+  .nav__menu {
+    flex-wrap: wrap;
+  }
+  .nav__lang {
+    margin: 0 auto;
+  }
   .card__day {
     margin: 0 auto;
   }

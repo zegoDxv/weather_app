@@ -1,4 +1,4 @@
-const link = "http://api.weatherstack.com/current?access_key=3cc9a446d03b59b568d98901ae2e619c"
+const link = "http://api.weatherstack.com/current?access_key=ad748840fd6bc6a9f5f0e8e2c5a66c7c"
 
 const btn = document.getElementById("btn")
 const form = document.getElementById("form")
@@ -80,14 +80,31 @@ const fetchData = async () => {
         function markup() {
             const {city, observationTime, windSpeed, description, temperature, isDay} = store
 
+            let spanObservation = document.createElement("span")
+            spanObservation.textContent = ` ${observationTime}`
+            let spanWindSpeed = document.createElement("span")
+            spanWindSpeed.textContent = `${windSpeed}`
+            let spanCloudCover = document.createElement("span")
+            spanCloudCover.textContent = `${cloudcover}%`
+            let spanUvIndex = document.createElement("span")
+            spanUvIndex.textContent = uvIndex
+            let spanHumidity = document.createElement("span")
+            spanHumidity.textContent = `${humidity}%`
+            let spanPressure = document.createElement("span")
+            spanPressure.textContent = `${pressure}%`
+            let spanVisibility = document.createElement("span")
+            spanVisibility.textContent = `${visibility}%`
+
             if (isDay === "yes") {
                 document.querySelector(
                     "#isDay"
                 ).innerHTML = `<img class='card-header__img' src="/img/isDay/yes.png" alt="">`
+                document.querySelector("#webIcon").setAttribute("href", `/img/webicon/yes.png`)
             } else {
                 document.querySelector(
                     "#isDay"
                 ).innerHTML = `<img class='card-header__img' src="/img/isDay/no.png" alt="">`
+                document.querySelector("#webIcon").setAttribute("href", `/img/webicon/no.png`)
             }
 
             document.querySelector
@@ -95,19 +112,13 @@ const fetchData = async () => {
             document.querySelector(
                 "#city"
             ).innerHTML = `${city} <span class="card__title_light" id='temperature'>${temperature}C&deg</span>`
-            document.querySelector("#observation").textContent = `as of ${observationTime}`
-            document.querySelector(
-                "#windspeed"
-            ).innerHTML = `${windSpeed}km/h <div class="card__info_hint">wind speed</div>`
-            document.querySelector(
-                "#cloudcover"
-            ).innerHTML = `${cloudcover}% <div class="card__info_hint">cloudcover</div>`
-            document.querySelector("#uvIndex").innerHTML = `${uvIndex} <div class="card__info_hint">uv Index</div>`
-            document.querySelector("#humidity").innerHTML = `${humidity}% <div class="card__info_hint">humidity</div>`
-            document.querySelector("#pressure").innerHTML = `${pressure}% <div class="card__info_hint">pressure</div>`
-            document.querySelector(
-                "#visibility"
-            ).innerHTML = `${visibility}%  <div class="card__info_hint">visibility</div>`
+            document.querySelector("#observation").append(spanObservation)
+            document.querySelector("#windspeed").prepend(spanWindSpeed)
+            document.querySelector("#cloudcover").prepend(spanCloudCover)
+            document.querySelector("#uvIndex").prepend(spanUvIndex)
+            document.querySelector("#humidity").prepend(spanHumidity)
+            document.querySelector("#pressure").prepend(spanPressure)
+            document.querySelector("#visibility").prepend(spanVisibility)
             document.querySelector("#img").setAttribute("src", `/img/wDescription/${getImage(description)}`)
         }
         markup()
@@ -133,9 +144,40 @@ const handleSubmit = (e) => {
 
     localStorage.setItem("query", value)
     fetchData()
+    location.reload()
 }
 
 form.addEventListener("submit", handleSubmit)
 textInput.addEventListener("input", handleInput)
 
+// Переводчик пошел ежже
+const allLang = ["ru", "en", "kz", "tr"]
+
+const select = document.querySelector("#select")
+select.value = localStorage.getItem("language") || "en"
+select.addEventListener("change", changeURLLang)
+
+// Перенаправить на URL с указанием языка
+function changeURLLang() {
+    let lang = select.value
+    location.href = `${window.location.pathname}#${lang}`
+    localStorage.setItem("language", lang)
+    select.value = localStorage.getItem("language")
+    location.reload()
+}
 fetchData()
+
+function changeLanguage() {
+    let hash = window.location.hash.substring(1)
+    if (!allLang.includes(hash)) {
+        location.href = `${window.location.pathname}#${localStorage.getItem("language") || "en"}`
+        location.reload()
+    }
+    select.value = hash
+    for (let key in langArr) {
+        console.log(key)
+        document.querySelector(".lng-" + key).textContent = `${langArr[key][hash]}`
+    }
+}
+
+changeLanguage()

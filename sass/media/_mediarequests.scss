@@ -4,6 +4,9 @@
         padding: 50px 35px 0 35px;
         width: 716px;
     }
+    .weather__row {
+        flex-wrap: wrap;
+    }
     .weather__card {
         border-radius: 0px 0px 20px 20px;
     }
@@ -13,6 +16,12 @@
 }
 
 @media (max-width: 465px) {
+    .nav__menu {
+        flex-wrap: wrap;
+    }
+    .nav__lang{
+        margin: 0 auto;
+    }
     .card__day {
         margin: 0 auto;
     }

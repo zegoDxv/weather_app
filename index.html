@@ -9,23 +9,32 @@
         <link
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
             rel="stylesheet" />
+        <link id="webIcon" rel="icon" href="./img/" />
         <link rel="stylesheet" href="/css/main.css" />
-        <title>Weather</title>
+        <title>Power Weather</title>
     </head>
     <body>
         <div class="content">
             <nav class="nav">
                 <div class="container">
                     <div class="nav__menu">
-                        <div class="nav__logo">
-                            <a href="#">PowerTeenagers Weather</a>
+                        <div class="nav__logo gradient">
+                            <a class="lng-logo" href="#">PowerTeenagers Weather</a>
+                        </div>
+                        <div class="nav__lang">
+                            <select id="select" name="lang" class="nav__select">
+                                <option class="nav__option" value="en">ENG</option>
+                                <option class="nav__option" value="ru">RUS</option>
+                                <option class="nav__option" value="kz">KAZ</option>
+                                <option class="nav__option" value="tr">TUR</option>
+                            </select>
                         </div>
                     </div>
                 </div>
             </nav>
             <header class="header">
                 <div class="container">
-                    <div class="header__title">
+                    <div class="header__title lng-title">
                         Seeing the weather of the whole world with <br />
                         <span class="header__title_gradient"
                             >Power <br />
@@ -38,7 +47,7 @@
                 <div class="container">
                     <div class="weather__row">
                         <div class="weather__select">
-                            <h2 class="select__title">Select city or country</h2>
+                            <h2 class="select__title lng-select-title">Select city or country</h2>
                             <form id="form" class="select__field">
                                 <input
                                     id="textInput"
@@ -66,7 +75,7 @@
                                 <span class="card__title_light" id="temperature">1</span>&deg;C
                             </div>
                             <div class="card__observation">
-                                <p id="observation" class="card__info"></p>
+                                <p id="observation" class="card__info"><span class="lng-observation">as of </span></p>
                             </div>
                             <div class="card__properties">
                                 <div class="card__properties-left">
@@ -75,21 +84,28 @@
                                             class="propertie__image"
                                             src="/img/weatherProperties/wind_color.png"
                                             alt="" />
-                                        <div id="windspeed" class="card__info"></div>
+                                        <div id="windspeed" class="card__info">
+                                            <span class="lng-kmh">km/h</span>
+                                            <div class="card__info_hint lng-windspeed">wind speed</div>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <img
                                             src="/img/weatherProperties/cloud_color.png"
                                             alt=""
                                             class="propertie__image" />
-                                        <div class="card__info" id="cloudcover">75%</div>
+                                        <div class="card__info" id="cloudcover">
+                                            <div class="card__info_hint lng-cloudcover">cloudcover</div>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <img
                                             src="/img/weatherProperties/uv-index_color.png"
                                             alt=""
                                             class="propertie__image" />
-                                        <div id="uvIndex" class="card__info">1 / 100</div>
+                                        <div id="uvIndex" class="card__info">
+                                            <div class="card__info_hint lng-uv">uv Index</div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="card__properties__right">
@@ -98,21 +114,27 @@
                                             src="/img/weatherProperties/humidity_color.png"
                                             alt=""
                                             class="propertie__image" />
-                                        <div id="humidity" class="card__info">93%</div>
+                                        <div id="humidity" class="card__info">
+                                            <div class="card__info_hint lng-humidity">humidity</div>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <img
                                             src="/img/weatherProperties/gauge_color.png"
                                             alt=""
                                             class="propertie__image" />
-                                        <div id="pressure" class="card__info">1036 %</div>
+                                        <div id="pressure" class="card__info">
+                                            <div class="card__info_hint lng-pressure">pressure</div>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <img
                                             src="/img/weatherProperties/visibility_color.png"
                                             alt=""
                                             class="propertie__image" />
-                                        <div id="visibility" class="card__info">10%</div>
+                                        <div id="visibility" class="card__info">
+                                            <div class="card__info_hint lng-visibility">visibility</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -126,6 +148,7 @@
                 <p class="footer__title">Developed by PowerTeenagers</p>
             </div>
         </footer>
+        <script src="/script/language.js"></script>
         <script src="/script/main.js"></script>
     </body>
 </html>

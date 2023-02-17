@@ -1,15 +1,43 @@
 .nav {
     text-align: center;
-    background: linear-gradient(90.85deg, #1a8bc4 39.76%, #25a9c0 86.12%),
+    padding-top: 51px;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 60px;
+}
+
+.gradient {
+    background: linear-gradient(90.85deg, #CAECFF 39.76%, #78CFFF 86.12%),
     linear-gradient(0deg, #FFFFFF, #FFFFFF);
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent;
-    padding-top: 51px;
-    font-weight: 600;
-font-size: 40px;
-line-height: 60px;
 }
+
 .nav__menu {
+    align-items: center;
+    display: flex;
+
+    justify-content: space-between;
 }
 .nav__logo {
+}
+
+
+.nav__lang {
+    display: flex;
+    justify-content: center;
+    height: 30px;
+}
+.nav__select {
+    color: #FFFFFF;
+    border-radius: 10px;
+    background-color: #415f70;
+    height: 33px;
+    width: 60px;
+    padding: 5px;
+}
+
+.nav__option {
+    font-size: 15px;
+    color: #FFFFFF;
 }
