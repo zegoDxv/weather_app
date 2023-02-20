@@ -9,6 +9,7 @@
         <link
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
             rel="stylesheet" />
+        <link rel="stylesheet" href="/css/sweetalert2.css" />
         <link id="webIcon" rel="icon" href="./img/" />
         <link rel="stylesheet" href="/css/main.css" />
         <title>Power Weather</title>
@@ -35,11 +36,7 @@
             <header class="header">
                 <div class="container">
                     <div class="header__title lng-title">
-                        Seeing the weather of the whole world with <br />
-                        <span class="header__title_gradient"
-                            >Power <br />
-                            Teenagers !</span
-                        >
+                        Seeing the weather of the whole world with Power Teenagers
                     </div>
                 </div>
             </header>
@@ -68,7 +65,7 @@
                                 <div id="isDay" class="card__day"></div>
                                 <div class="weather__description">
                                     <img id="img" class="weather__image" src="/img/wDescription" alt="" />
-                                    <div id="description" class="card__info"></div>
+                                    <div id="description" class="card__info">.</div>
                                 </div>
                             </div>
                             <div id="city" class="card__title">
@@ -148,7 +145,10 @@
                 <p class="footer__title">Developed by PowerTeenagers</p>
             </div>
         </footer>
-        <script src="/script/language.js"></script>
+        <script defer src="/script/languageModal.js"></script>
+        <script defer src="/script/languageDescription.js"></script>
+        <script defer src="/script/language.js"></script>
         <script src="/script/main.js"></script>
+        <script src="/script/sweetalert2.all.min.js"></script>
     </body>
 </html>

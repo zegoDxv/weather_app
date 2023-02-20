@@ -64,6 +64,12 @@ const langArr = {
         "en" : "visibility",
         "tr" : "görüş mesafesi",
         "kz" : "көріну", 
-    }
-    
+    },
+    "placeholder": {
+        "ru" : "напишите город или страну",
+        "en" : "write city or country",
+        "tr" : "şehri veya ülkeyi yazın",
+        "kz" : "қаланы немесе елді жазыңыз", 
+    },
+
 }

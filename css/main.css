@@ -196,9 +196,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .row {
+  margin-bottom: 25px;
   display: flex;
   align-items: center;
   line-height: 2.2em;
+}
+
+.weather__description {
+  max-width: 301px;
+  line-height: 2.2em;
+  font-size: 15px;
 }
 
 .weather__image {
@@ -249,7 +256,6 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   font-weight: 700;
   font-size: 40px;
-  margin-bottom: 20px;
 }
 
 .card__title_light {
@@ -305,7 +311,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .card__observation {
   display: flex;
-  justify-content: end;
+  justify-content: center;
   padding-bottom: 15px;
 }
 
@@ -350,6 +356,11 @@ h1, h2, h3, h4, h5, h6 {
   }
   .select__title {
     text-align: center;
+  }
+}
+@media (max-width: 603px) {
+  .row {
+    margin-bottom: 25px;
   }
 }
 @media (max-width: 465px) {

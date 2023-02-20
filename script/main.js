@@ -1,4 +1,4 @@
-const link = "http://api.weatherstack.com/current?access_key=ad748840fd6bc6a9f5f0e8e2c5a66c7c"
+const link = "http://api.weatherstack.com/current?access_key=463929a67918385252921eae22c9dc69"
 
 const btn = document.getElementById("btn")
 const form = document.getElementById("form")
@@ -25,6 +25,24 @@ const fetchData = async () => {
         const query = localStorage.getItem("query") || store.city
         const result = await fetch(`${link}&query=${query}`)
         const data = await result.json()
+
+        if (data.success == false) {
+            let hash = window.location.hash.substring(1)
+            Swal.fire({
+                icon: "error",
+                // title: "Oops...",
+                // text: "You entered the wrong name",
+                title: `${langModal["title"][hash]}`,
+                text: `${langModal["text"][hash]}`,
+                confirmButtonColor: "#1a272c",
+                background: "#203139",
+                color: "#fff",
+            })
+            const query = localStorage.setItem("query", `Pavlodar`)
+
+            fetchData()
+            return
+        }
 
         const {
             current: {
@@ -82,16 +100,22 @@ const fetchData = async () => {
 
             let spanObservation = document.createElement("span")
             spanObservation.textContent = ` ${observationTime}`
+
             let spanWindSpeed = document.createElement("span")
             spanWindSpeed.textContent = `${windSpeed}`
+
             let spanCloudCover = document.createElement("span")
             spanCloudCover.textContent = `${cloudcover}%`
+
             let spanUvIndex = document.createElement("span")
             spanUvIndex.textContent = uvIndex
+
             let spanHumidity = document.createElement("span")
             spanHumidity.textContent = `${humidity}%`
+
             let spanPressure = document.createElement("span")
             spanPressure.textContent = `${pressure}%`
+
             let spanVisibility = document.createElement("span")
             spanVisibility.textContent = `${visibility}%`
 
@@ -107,7 +131,6 @@ const fetchData = async () => {
                 document.querySelector("#webIcon").setAttribute("href", `/img/webicon/no.png`)
             }
 
-            document.querySelector
             document.querySelector("#description").textContent = description
             document.querySelector(
                 "#city"
@@ -165,6 +188,7 @@ function changeURLLang() {
     select.value = localStorage.getItem("language")
     location.reload()
 }
+
 fetchData()
 
 function changeLanguage() {
@@ -176,8 +200,26 @@ function changeLanguage() {
     select.value = hash
     for (let key in langArr) {
         console.log(key)
-        document.querySelector(".lng-" + key).textContent = `${langArr[key][hash]}`
+        if (document.querySelector(".lng-" + key) != document.querySelector(".lng-placholder")) {
+            document.querySelector(".lng-" + key).textContent = `${langArr[key][hash]}`
+        }
     }
+
+    document.querySelector("#textInput").setAttribute("placeholder", `${langArr["placeholder"][hash]}`)
+
+    // console.log(document.querySelector("#description").textContent)
+    // console.log(langDesc["description"][document.querySelector("#description").textContent][hash])
+    // console.log(langDesc["description"][`${store.description}`][hash])
+    console.log(store.description)
+
+    setTimeout(() => {
+        document.querySelector("#description").textContent = langDesc["description"][`${store.description}`][hash]
+    }, 800)
+
+    // document.querySelector("#description").textContent =
+    //     langArr[`${document.querySelector("#description").textContent}`[hash]]
 }
 
-changeLanguage()
+setTimeout(() => {
+    changeLanguage()
+}, 80)
