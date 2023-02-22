@@ -251,6 +251,10 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
 }
 
+.card__properties-left {
+  margin-right: 20px;
+}
+
 .card__title {
   text-align: center;
   align-items: center;
@@ -356,6 +360,15 @@ h1, h2, h3, h4, h5, h6 {
   }
   .select__title {
     text-align: center;
+  }
+}
+@media (max-width: 559px) {
+  .card__properties {
+    display: flex;
+    justify-content: center;
+  }
+  .card__properties__right {
+    width: 232px;
   }
 }
 @media (max-width: 603px) {

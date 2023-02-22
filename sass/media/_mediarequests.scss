@@ -15,6 +15,16 @@
     }
 }
 
+@media (max-width: 559px) {
+    .card__properties {
+        display: flex;
+        justify-content: center;
+    }
+    .card__properties__right {
+        width: 232px;
+    }
+}
+
 @media (max-width: 603px) {
     .row {
         margin-bottom: 25px;

@@ -1,4 +1,4 @@
-const link = "http://api.weatherstack.com/current?access_key=463929a67918385252921eae22c9dc69"
+const link = "http://api.weatherstack.com/current?access_key=c19a244860131c288d3746e74973385f"
 
 const btn = document.getElementById("btn")
 const form = document.getElementById("form")
@@ -25,6 +25,8 @@ const fetchData = async () => {
         const query = localStorage.getItem("query") || store.city
         const result = await fetch(`${link}&query=${query}`)
         const data = await result.json()
+
+        console.log(data)
 
         if (data.success == false) {
             let hash = window.location.hash.substring(1)
@@ -114,7 +116,7 @@ const fetchData = async () => {
             spanHumidity.textContent = `${humidity}%`
 
             let spanPressure = document.createElement("span")
-            spanPressure.textContent = `${pressure}%`
+            spanPressure.textContent = `${pressure}`
 
             let spanVisibility = document.createElement("span")
             spanVisibility.textContent = `${visibility}%`
@@ -160,7 +162,6 @@ const handleInput = (e) => {
 const handleSubmit = (e) => {
     e.preventDefault()
 
-    console.log(store.city)
     const value = store.city
 
     if (!value) return null
@@ -199,7 +200,7 @@ function changeLanguage() {
     }
     select.value = hash
     for (let key in langArr) {
-        console.log(key)
+        // console.log(key)
         if (document.querySelector(".lng-" + key) != document.querySelector(".lng-placholder")) {
             document.querySelector(".lng-" + key).textContent = `${langArr[key][hash]}`
         }
@@ -210,11 +211,11 @@ function changeLanguage() {
     // console.log(document.querySelector("#description").textContent)
     // console.log(langDesc["description"][document.querySelector("#description").textContent][hash])
     // console.log(langDesc["description"][`${store.description}`][hash])
-    console.log(store.description)
+    // console.log(store.description)
 
     setTimeout(() => {
         document.querySelector("#description").textContent = langDesc["description"][`${store.description}`][hash]
-    }, 800)
+    }, 850)
 
     // document.querySelector("#description").textContent =
     //     langArr[`${document.querySelector("#description").textContent}`[hash]]
